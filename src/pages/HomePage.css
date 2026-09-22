@@ -4,6 +4,7 @@
     @apply pt-[60px]
 }
 
+/*HERO SECTION*/
 .hero-section {
     @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-[url('../assets/webpage-backdrop.png')] bg-cover bg-center bg-no-repeat h-[750px];
 }
@@ -12,7 +13,7 @@
     @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px] h-[450px] border border-white box-border;
 }
 
-.hero-title {
+.hero-job-title {
     @apply text-[#94A3B8] font-bold;
 }
 
@@ -38,6 +39,31 @@
 
 .hero-links a {
     @apply max-w-full;
+}
+
+/*ABOUT SECTION*/
+.about-section{
+    @apply mx-auto px-3 py-5 w-[95%] border-y border-[#334155] box-border;
+}
+
+.about-section-title{
+    @apply text-[#F8FAFC] text-center mb-1 text-[40px] sm:text-[65px];
+}
+
+.about-introduction{
+    @apply text-[#94A3B8] text-center font-extralight text-[15px] sm:text-[30px] mb-3;
+}
+
+.about-details{
+    @apply ml-auto text-left border border-white rounded-2xl max-w-[800px] px-[20px] py-[25px] bg-[rgba(0,0,0,0.4)];
+}
+
+.about-details-subtitle {
+    @apply font-[350] text-[#3B82F6] text-[35px];
+}
+
+.about-details-text {
+    @apply text-[#94A3B8] text-[20px] text-justify mt-[5px] mb-[15px];
 }
 
 section {

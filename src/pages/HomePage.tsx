@@ -14,7 +14,7 @@ const HomePage = () => {
 
                             <p className="hero-name">I'm Axel.</p>
 
-                            <h1 className="hero-title">
+                            <h1 className="hero-job-title">
                                 Game Developer
                                 <span> → </span>
                                 Web Developer
@@ -48,30 +48,35 @@ const HomePage = () => {
                     </section>
 
                     <section id="about" className='about-section'>
-                        <h2>About Me</h2>
-                        <p>
+                        <h2 className='about-section-title'>About Me</h2>
+                        <p className='about-introduction'>
                             I'm Axel Ravelo, a software engineer. I enjoy turning ideas into functional,
                             polished products and learning new things along the way.
                         </p>
 
-                        <p>
-                            I enjoy learning new technologies and applying them to my work while keeping my code clean,
-                            scalable, and modular. I also enjoy coming up with new functionality and quality-of-life improvements
-                            that enhance the overall user experience.
-                        </p>
+                        <div className='about-details'>
+                            <h3 className='about-details-subtitle'>Work interests:</h3>
+                            <p className='about-details-text'>
+                                I enjoy learning new technologies and applying them to my work while keeping my code clean,
+                                scalable, and modular. I also enjoy coming up with new functionality and quality-of-life improvements
+                                that enhance the overall user experience.
+                            </p>
 
-                        <p>
-                            I enjoy hands-on work and getting to understand a system as I make changes to it.
-                            I like brainstorming ideas for improvements and finding ways to make processes simpler
-                            and more efficient. I also value my teammates' perspectives and enjoy hearing their
-                            ideas and feedback, especially when it can lead to a better solution.
-                        </p>
+                            <h3 className='about-details-subtitle'>My Approach:</h3>
+                            <p className='about-details-text'>
+                                I enjoy hands-on work and getting to understand a system as I make changes to it.
+                                I like brainstorming ideas for improvements and finding ways to make processes simpler
+                                and more efficient. I also value my teammates' perspectives and enjoy hearing their
+                                ideas and feedback, especially when it can lead to a better solution.
+                            </p>
 
-                        <p>
-                            I'm currently working on expanding my knowledge of backend technologies and
-                            improving my understanding of design. I'm also exploring how AI can be used to
-                            streamline my workflow, make development more efficient, and help me iterate on ideas more quickly.
-                        </p>
+                            <h3 className='about-details-subtitle'>What I'm currently doing:</h3>
+                            <p className='about-details-text'>
+                                I'm currently working on expanding my knowledge of backend technologies and
+                                improving my understanding of design. I'm also exploring how AI can be used to
+                                streamline my workflow, make development more efficient, and help me iterate on ideas more quickly.
+                            </p>
+                        </div>
 
 
                     </section>
