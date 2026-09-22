@@ -43,7 +43,7 @@
 
 /*ABOUT SECTION*/
 .about-section{
-    @apply mx-auto px-3 py-5 w-[95%] border-y border-[#334155] box-border;
+    @apply mx-auto px-[20px] sm:px-[45px] py-5 border-y border-[#334155] box-border;
 }
 
 .about-section-title{

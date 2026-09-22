@@ -16,8 +16,8 @@ const Header = () => {
                 <div className="right-section">
                     
                     <a href="#work" className="header-link">Work</a>
-                    <a href="#about" className="header-link">About</a>
-                    <a href="#contact" className="header-link">Contact</a>
+                    <a href="#about" className="header-link ml-3.5">About</a>
+                    <a href="#contact" className="header-link ml-3.5">Contact</a>
                 </div>
             </div>
         </>

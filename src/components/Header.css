@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .header {
-  @apply fixed top-0 left-0 right-0 flex items-center justify-between h-[60px] px-[15px] bg-[#0F172A] text-white;
+  @apply fixed top-0 left-0 right-0 flex items-center justify-between h-[60px] px-[20px] sm:px-[45px] bg-[#0F172A] text-white;
 }
 
 .header .left-section {
@@ -15,7 +15,7 @@
 }
 
 .header .header-link {
-  @apply inline-block py-[6px] px-[9.5px] rounded-[2px] cursor-pointer no-underline border border-[rgba(0,0,0,0)];
+  @apply inline-block py-[6px] rounded-[2px] cursor-pointer no-underline border border-[rgba(0,0,0,0)];
 }
 
 .header .header-link:hover {
