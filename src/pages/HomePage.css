@@ -1,0 +1,45 @@
+@import "tailwindcss";
+
+.home-page {
+    @apply pt-[60px]
+}
+
+.hero-section {
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-[url('../assets/webpage-backdrop.png')] bg-cover bg-center bg-no-repeat h-[750px];
+}
+
+.hero-content {
+    @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px] h-[450px] border border-white box-border;
+}
+
+.hero-title {
+    @apply text-[#94A3B8] font-bold;
+}
+
+.hero-name {
+    @apply text-[#F8FAFC] text-[50px] sm:text-[75px];
+}
+
+.hero-description {
+    @apply text-[#94A3B8] text-[30px] font-light my-[15px] w-full text-pretty;
+}
+
+.long-description {
+    @apply text-[20px] max-w-[620px] text-justify;
+}
+
+.hero-highlight {
+    @apply font-semibold text-[#3B82F6];
+}
+
+.hero-links {
+    @apply flex flex-wrap gap-5;
+}
+
+.hero-links a {
+    @apply max-w-full;
+}
+
+section {
+    scroll-margin-top: 65px;
+}

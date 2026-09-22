@@ -4,7 +4,7 @@ const NotFoundPage = () => {
     return(
         <>
             <Header />
-            <h1>404 Not Found</h1>
+            <h2 className="mt-[75px]">404 Not Found</h2>
         </>
     );
 }
