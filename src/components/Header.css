@@ -15,7 +15,7 @@
 }
 
 .header .header-link {
-  @apply inline-block py-[6px] px-[9.5px] rounded-[2px] cursor-pointer no-underline border border-[rgba(0, 0, 0, 0)];
+  @apply inline-block py-[6px] px-[9.5px] rounded-[2px] cursor-pointer no-underline border border-[rgba(0,0,0,0)];
 }
 
 .header .header-link:hover {
