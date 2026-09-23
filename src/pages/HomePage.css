@@ -1,12 +1,16 @@
 @import "tailwindcss";
 
+section {
+    scroll-margin-top: 60px;
+}
+
 .home-page {
     @apply pt-[60px] scroll-smooth;
 }
 
 /*HERO SECTION*/
 .hero-section {
-    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-cover bg-center bg-no-repeat min-h-screen snap-start; /*bg-[url('../assets/webpage-backdrop.png')]*/
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start;
 }
 
 .hero-content {
@@ -63,7 +67,7 @@
 }
 
 .project-cards-track {
-    @apply flex w-max min-w-full gap-7;
+    @apply flex w-max min-w-full gap-7 justify-center;
 }
 
 
@@ -95,9 +99,21 @@
 /*CONTACT SECTION*/
 
 .contact-section{
-    @apply px-[20px] sm:px-[45px] min-h-screen snap-start;
+    @apply px-[20px] sm:px-[45px] min-h-screen snap-start bg-cover bg-center bg-no-repeat bg-[url('../assets/webpage-backdrop.png')];
 }
 
-section {
-    scroll-margin-top: 60px;
+.contact-section-title{
+    @apply text-[#F8FAFC] text-center mb-10 text-[40px] sm:text-[65px];
+}
+
+.contact-info-container{
+    @apply mx-auto text-left border border-white rounded-2xl max-w-[800px] px-[20px] py-[25px] bg-[rgba(219,234,254,0.4)] h-auto min-h-[600px];
+}
+
+.contact-links-container {
+    @apply flex flex-wrap gap-4 max-w-full justify-center;
+}
+
+.link-icons{
+    @apply w-[20px] sm:w-[45px];
 }

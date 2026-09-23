@@ -1,9 +1,14 @@
 import './HomePage.css'
 import Header from "../components/Header/Header";
 
+import { ContactUs } from '../components/Contact/ContactUs';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
+
+import discord from "../assets/discord.svg";
+import gitHub from "../assets/github.svg";
+import linkedIn from "../assets/linkedin.svg";
 
 const HomePage = () => {
     return (
@@ -115,7 +120,22 @@ const HomePage = () => {
                     </section>
 
                     <section id="contact" className='contact-section'>
-                        <h2>Contact</h2>
+                        <h2 className='contact-section-title'>Contact</h2>
+                        <div className='contact-info-container'>
+                             <ContactUs />
+
+                            <div className='contact-links-container'>
+                                <a href="https://github.com/axelravelo" target="_blank">
+                                    <img src={gitHub} alt="GitHub" className='link-icons' />
+                                </a>
+                                <a href="https://www.linkedin.com/in/axel-ravelo-8889532a5/" target="_blank">
+                                    <img src={linkedIn} alt="GitHub" className='link-icons' />
+                                </a>
+                                <a href="https://discord.dog/1221224326003687534" target="_blank">
+                                    <img src={discord} alt="GitHub" className='link-icons' />
+                                </a>
+                            </div>
+                        </div>
                     </section>
                 </main>
             </div>
