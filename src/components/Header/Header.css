@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 .header {
-  @apply fixed top-0 left-0 right-0 flex items-center justify-between h-[60px] px-[20px] sm:px-[45px] bg-[#0F172A] text-white;
+  @apply fixed top-0 left-0 right-0 z-50 flex items-center justify-between h-[60px] px-[20px] sm:px-[45px] bg-[#080F21] text-white;
 }
 
 .header .left-section {
@@ -20,24 +20,6 @@
 
 .header .header-link:hover {
   @apply border border-[#334155];
-}
-
-.header .logo {
-  @apply h-[26px] mt-[1px];
-}
-
-.header .mobile-logo {
-  @apply hidden;
-}
-
-@media (max-width: 675px) {
-  .header .logo {
-    @apply hidden;
-  }
-
-  .header .mobile-logo {
-    @apply block h-[26px] mt-[1px];
-  }
 }
 
 .header .middle-section {

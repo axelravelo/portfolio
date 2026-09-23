@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+
+.unselected-project-title {
+    @apply absolute inset-0 flex items-end p-5 bg-gradient-to-t from-black/80 to-transparent transition-opacity duration-300 group-hover:opacity-0;
+}
+
+.selected-project-title {
+    @apply absolute inset-0 p-6 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 overflow-y-auto;
+}
+
+.card-description {
+    @apply mt-4 text-slate-300 text-justify;
+}
+
+.card-responsibilities {
+    @apply mt-2 text-slate-300 text-justify;
+}
+
+.card-challenges {
+    @apply mt-2 text-slate-300 text-justify;
+}
+
+.learn-more-link {
+    @apply mt-[15px] font-bold text-[#3B82F6];
+}
+
+/* Devices that actually support hover */
+@media (hover: hover) and (pointer: fine) {
+    .group:hover .unselected-project-title {
+        opacity: 0;
+    }
+
+    .group:hover .selected-project-title {
+        opacity: 1;
+    }
+}
+
+
+/* Touch devices */
+@media (hover: none) and (pointer: coarse) {
+    .mobile-hidden {
+        opacity: 0;
+    }
+
+    .mobile-visible {
+        opacity: 1;
+    }
+}

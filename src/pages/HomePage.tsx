@@ -1,5 +1,9 @@
 import './HomePage.css'
-import Header from "../components/Header";
+import Header from "../components/Header/Header";
+
+import ProjectCard from '../components/ProjectCard/ProjectCard';
+import { webProjects } from "../data/webProjects";
+import { gameProjects } from "../data/gameProjects";
 
 const HomePage = () => {
     return (
@@ -44,7 +48,36 @@ const HomePage = () => {
                     </section>
 
                     <section id="work" className='work-section'>
-                        <h1>My Work</h1>
+                        <h1 className='work-section-title'>My Work</h1>
+                        <h2 className="work-section-subtitle">
+                            <span className="w-12 h-[2px] bg-[#3B82F6]"></span>
+                            Web Development
+                        </h2>
+
+                        <div className="project-cards-container">
+                            <div className="project-cards-track">
+                                {webProjects.map((project) => (
+                                    <ProjectCard
+                                        key={project.title}
+                                        project={project}
+                                    />
+                                ))}
+                            </div>
+                        </div>
+                        <h2 className="work-section-subtitle">
+                            <span className="w-12 h-[2px] bg-[#3B82F6]"></span>
+                            Game Development
+                        </h2>
+                        <div className="project-cards-container">
+                            <div className="project-cards-track">
+                                {gameProjects.map((project) => (
+                                    <ProjectCard
+                                        key={project.title}
+                                        project={project}
+                                    />
+                                ))}
+                            </div>
+                        </div>
                     </section>
 
                     <section id="about" className='about-section'>

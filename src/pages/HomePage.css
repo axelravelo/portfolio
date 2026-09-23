@@ -1,16 +1,16 @@
 @import "tailwindcss";
 
 .home-page {
-    @apply pt-[60px]
+    @apply pt-[60px] scroll-smooth;
 }
 
 /*HERO SECTION*/
 .hero-section {
-    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-[url('../assets/webpage-backdrop.png')] bg-cover bg-center bg-no-repeat h-[750px];
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-cover bg-center bg-no-repeat min-h-screen snap-start; /*bg-[url('../assets/webpage-backdrop.png')]*/
 }
 
 .hero-content {
-    @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px] h-[450px] border border-white box-border;
+    @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px]  h-auto min-h-[400px] sm:min-h-[450px] border border-white box-border;
 }
 
 .hero-job-title {
@@ -34,20 +34,46 @@
 }
 
 .hero-links {
-    @apply flex flex-wrap gap-5;
+    @apply flex flex-wrap gap-4 max-w-full;
+}
+
+.hero-links a {
+    @apply max-w-full break-words;
 }
 
 .hero-links a {
     @apply max-w-full;
 }
 
+/*WORK SECTION*/
+
+.work-section{
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] bg-[#0F172A] snap-start min-h-screen;
+}
+
+.work-section-title {
+    @apply text-[#F8FAFC] text-center mb-16 text-[40px] sm:text-[65px] font-bold;
+}
+
+.work-section-subtitle {
+    @apply text-[#F8FAFC] text-left mb-8 text-[24px] sm:text-[28px] font-semibold flex items-center gap-4;
+}
+.project-cards-container {
+    @apply overflow-x-auto w-full mb-15 scrollbar-track-[rgba(0,0,0,0)] scrollbar-thumb-gray-50 snap-x snap-proximity;
+}
+
+.project-cards-track {
+    @apply flex w-max min-w-full gap-7;
+}
+
+
 /*ABOUT SECTION*/
 .about-section{
-    @apply mx-auto px-[20px] sm:px-[45px] py-5 border-y border-[#334155] box-border;
+    @apply mx-auto px-[20px] sm:px-[45px] py-5 border-y border-[#334155] box-border min-h-screen snap-start;
 }
 
 .about-section-title{
-    @apply text-[#F8FAFC] text-center mb-1 text-[40px] sm:text-[65px];
+    @apply text-[#F8FAFC] text-center mb-10 text-[40px] sm:text-[65px];
 }
 
 .about-introduction{
@@ -66,6 +92,12 @@
     @apply text-[#94A3B8] text-[20px] text-justify mt-[5px] mb-[15px];
 }
 
+/*CONTACT SECTION*/
+
+.contact-section{
+    @apply px-[20px] sm:px-[45px] min-h-screen snap-start;
+}
+
 section {
-    scroll-margin-top: 65px;
+    scroll-margin-top: 60px;
 }
