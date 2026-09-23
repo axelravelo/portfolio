@@ -1,16 +1,20 @@
 import './HomePage.css'
 import Header from "../components/Header/Header";
 
+import { useLocation, useNavigate } from "react-router-dom";
+import { navigateToSection } from "../utils/sectionNavigation";
+
 import { ContactUs } from '../components/Contact/ContactUs';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
 
-import discord from "../assets/discord.svg";
-import gitHub from "../assets/github.svg";
-import linkedIn from "../assets/linkedin.svg";
-
+import "bootstrap-icons/font/bootstrap-icons.css";
 const HomePage = () => {
+
+    const location = useLocation();
+    const navigate = useNavigate();
+
     return (
         <>
             <div className="home-page">
@@ -46,8 +50,22 @@ const HomePage = () => {
                             </p>
 
                             <div className="hero-links">
-                                <a href="#work">View My Work</a>
-                                <a href="#contact">Contact Me</a>
+                                <button
+                                    className="cursor-pointer"
+                                    onClick={() =>
+                                        navigateToSection("work", location.pathname, navigate)
+                                    }
+                                >
+                                    View My Work
+                                </button>
+                                 <button
+                                    className="cursor-pointer"
+                                    onClick={() =>
+                                        navigateToSection("contact", location.pathname, navigate)
+                                    }
+                                >
+                                    Contact Me
+                                </button>
                             </div>
                         </div>
                     </section>
@@ -122,17 +140,31 @@ const HomePage = () => {
                     <section id="contact" className='contact-section'>
                         <h2 className='contact-section-title'>Contact</h2>
                         <div className='contact-info-container'>
-                             <ContactUs />
+                            <ContactUs />
 
-                            <div className='contact-links-container'>
-                                <a href="https://github.com/axelravelo" target="_blank">
-                                    <img src={gitHub} alt="GitHub" className='link-icons' />
+                            <div className="contact-links-container">
+                                <a
+                                    href="https://github.com/axelravelo"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="bi bi-github"></i>
                                 </a>
-                                <a href="https://www.linkedin.com/in/axel-ravelo-8889532a5/" target="_blank">
-                                    <img src={linkedIn} alt="GitHub" className='link-icons' />
+
+                                <a
+                                    href="https://www.linkedin.com/in/axel-ravelo-8889532a5/"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="bi bi-linkedin"></i>
                                 </a>
-                                <a href="https://discord.dog/1221224326003687534" target="_blank">
-                                    <img src={discord} alt="GitHub" className='link-icons' />
+
+                                <a
+                                    href="https://discord.dog/1221224326003687534"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                >
+                                    <i className="bi bi-discord"></i>
                                 </a>
                             </div>
                         </div>

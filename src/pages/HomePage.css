@@ -41,11 +41,11 @@ section {
     @apply flex flex-wrap gap-4 max-w-full;
 }
 
-.hero-links a {
-    @apply max-w-full break-words;
+.hero-links button {
+    @apply max-w-full break-words text-[#60A5FA];
 }
 
-.hero-links a {
+.hero-links button {
     @apply max-w-full;
 }
 
@@ -107,13 +107,17 @@ section {
 }
 
 .contact-info-container{
-    @apply mx-auto text-left border border-white rounded-2xl max-w-[800px] px-[20px] py-[25px] bg-[rgba(219,234,254,0.4)] h-auto min-h-[600px];
+    @apply mx-auto text-left max-w-[800px] px-[20px] py-[25px] h-auto min-h-[600px];
 }
 
 .contact-links-container {
-    @apply flex flex-wrap gap-4 max-w-full justify-center;
+    @apply flex gap-5 justify-center mt-3;
 }
 
-.link-icons{
-    @apply w-[20px] sm:w-[45px];
+.contact-links-container a {
+    @apply text-[#F8FAFC] text-[30px] transition-colors duration-200;
+}
+
+.contact-links-container a:hover {
+    @apply text-[#60A5FA];
 }

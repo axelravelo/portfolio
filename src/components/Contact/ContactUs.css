@@ -1,0 +1,39 @@
+@import "tailwindcss";
+
+.contact-form {
+    @apply w-full max-w-[700px] mx-auto flex flex-col gap-5 p-6 sm:p-8 bg-[#0F172A] border border-[#334155] rounded-2xl mt-6;
+}
+
+.contact-form-field {
+    @apply flex flex-col gap-2;
+}
+
+.contact-form-field label {
+    @apply text-[#BFDBFE] text-[18px] font-semibold;
+}
+
+.contact-form-field input,
+.contact-form-field textarea {
+    @apply w-full px-4 py-3 bg-[#020617] border border-[#334155] rounded-lg text-[#F8FAFC] placeholder:text-[#64748B] outline-none transition-colors duration-200 box-border;
+}
+
+.contact-form-field input {
+    @apply h-[50px];
+}
+
+.contact-form-field textarea {
+    @apply min-h-[180px] resize-y;
+}
+
+.contact-form-field input:focus,
+.contact-form-field textarea:focus {
+    @apply border-[#3B82F6];
+}
+
+.contact-submit {
+    @apply self-start px-6 py-3 bg-[#3B82F6] text-[#F8FAFC] font-semibold rounded-lg cursor-pointer transition-colors duration-200;
+}
+
+.contact-submit:hover {
+    @apply bg-[#60A5FA];
+}
