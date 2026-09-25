@@ -10,7 +10,7 @@ section {
 
 /*HERO SECTION*/
 .hero-section {
-    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start;
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start relative overflow-hidden;
 }
 
 .hero-content {
@@ -72,20 +72,28 @@ section {
 
 
 /*ABOUT SECTION*/
-.about-section{
-    @apply mx-auto px-[20px] sm:px-[45px] py-5 border-y border-[#334155] box-border min-h-screen snap-start;
+.about-section {
+    @apply px-[20px] sm:px-[45px] py-5 border-y border-[#334155] box-border min-h-screen snap-start;
 }
 
-.about-section-title{
+.about-section-title {
     @apply text-[#F8FAFC] text-center mb-10 text-[40px] sm:text-[65px];
 }
 
-.about-introduction{
+.about-introduction {
     @apply text-[#94A3B8] text-center font-extralight text-[15px] sm:text-[30px] mb-3;
 }
 
-.about-details{
-    @apply ml-auto text-left border border-white rounded-2xl max-w-[800px] px-[20px] py-[25px] bg-[rgba(0,0,0,0.4)];
+.about-content {
+    @apply flex flex-col lg:flex-row items-stretch gap-8 w-full;
+}
+
+.about-image {
+    @apply w-full lg:w-1/2 rounded-2xl object-cover border border-gray-800;
+}
+
+.about-details {
+    @apply w-full lg:w-1/2 text-left border border-white rounded-2xl px-[20px] py-[25px] bg-[rgba(0,0,0,0.4)];
 }
 
 .about-details-subtitle {
@@ -99,11 +107,11 @@ section {
 /*CONTACT SECTION*/
 
 .contact-section{
-    @apply px-[20px] sm:px-[45px] min-h-screen snap-start bg-cover bg-center bg-no-repeat bg-[url('../assets/webpage-backdrop.png')];
+    @apply px-[20px] sm:px-[45px] min-h-screen snap-start bg-[#050F2B]; /*bg-cover bg-center bg-no-repeat bg-[url('../assets/webpage-backdrop.png')]*/
 }
 
 .contact-section-title{
-    @apply text-[#F8FAFC] text-center mb-10 text-[40px] sm:text-[65px];
+    @apply text-[#F8FAFC] text-center text-[40px] sm:text-[65px];
 }
 
 .contact-info-container{
@@ -114,10 +122,11 @@ section {
     @apply flex gap-5 justify-center mt-3;
 }
 
-.contact-links-container a {
+.contact-links-container a,
+.contact-links-container button {
     @apply text-[#F8FAFC] text-[30px] transition-colors duration-200;
 }
 
-.contact-links-container a:hover {
-    @apply text-[#60A5FA];
+.contact-links-container a:hover, button:hover {
+    @apply text-[#60A5FA] cursor-pointer;
 }

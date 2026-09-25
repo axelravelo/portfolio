@@ -1,10 +1,11 @@
 import type { Project } from "../types/Project";
 import ecommerce from "../assets/ecomerce-project.png";
+import chatbot from "../assets/chatbot.png";
 
 export const webProjects: Project[] = [
     {
         title: "Chatbot Project",
-        image: "/path/to/image.png",
+        image: chatbot,
         description: "A project developed as part of a JavaScript course, which I recreated using TypeScript to strengthen my understanding of typed JavaScript and apply TypeScript concepts in a practical project.",
         responsibilities: "A chatbot application developed as part of a JavaScript course. I recreated the project using TypeScript and extended its functionality by integrating an AI API to generate dynamic responses instead of relying on predefined replies.",
         challenges: "Learning how to work with an external API, handle asynchronous requests, process responses, and integrate dynamically generated content into the existing chatbot interface."

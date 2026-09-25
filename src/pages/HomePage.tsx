@@ -1,6 +1,10 @@
 import './HomePage.css'
-import Header from "../components/Header/Header";
+import "bootstrap-icons/font/bootstrap-icons.css";
 
+import Header from "../components/Header/Header";
+import HeroBackground from '../components/Render/HeroBackground';
+
+import { useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { navigateToSection } from "../utils/sectionNavigation";
 
@@ -9,19 +13,53 @@ import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
 
-import "bootstrap-icons/font/bootstrap-icons.css";
+import { MathUtils } from "three";
+
+import backdrop from '../assets/webpage-backdrop.png'
+
 const HomePage = () => {
+    const [targetRotation, setTargetRotation] = useState({x:0, y:0});
+
+    const handleMouseMove = (event: React.MouseEvent) => {
+        const normalizedX = (event.clientX / window.innerWidth) * 2 - 1;
+        const normalizedY = (event.clientY / window.innerHeight) * 2 - 1;
+
+        const targetRotationX = normalizedY * (Math.PI / 6);
+        const targetRotationY = normalizedX * (Math.PI / 6);
+
+        setTargetRotation({x:targetRotationX, y:targetRotationY});
+
+        console.log(normalizedY);
+        // console.log(event.clientY);
+    };
 
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [copied, setCopied] = useState(false);
+
+    const email: string = 'axel8ravelo@outlook.com'
+
+    const copyEmail = async () => {
+        await navigator.clipboard.writeText(email);
+        setCopied(true);
+
+        setTimeout(() => {
+            setCopied(false);
+        }, 2000);
+    };
 
     return (
         <>
             <div className="home-page">
                 <Header />
                 <main>
-                    <section id="hero" className="hero-section">
-
+                    <section
+                        id="hero"
+                        className="hero-section"
+                        onMouseMove={handleMouseMove}
+                    >
+                        <HeroBackground targetRotation={targetRotation} />
                         <div className="hero-content">
                             <p className="text-[#94A3B8] text-[25px]">Hey!</p>
 
@@ -40,7 +78,7 @@ const HomePage = () => {
                                 </span>{" "}
                                 web developer and{" "}
                                 <span className="hero-highlight">
-                                    game developer.
+                                    game developer
                                 </span>.
                             </p>
 
@@ -58,7 +96,7 @@ const HomePage = () => {
                                 >
                                     View My Work
                                 </button>
-                                 <button
+                                <button
                                     className="cursor-pointer"
                                     onClick={() =>
                                         navigateToSection("contact", location.pathname, navigate)
@@ -110,30 +148,33 @@ const HomePage = () => {
                             polished products and learning new things along the way.
                         </p>
 
-                        <div className='about-details'>
-                            <h3 className='about-details-subtitle'>Work interests:</h3>
-                            <p className='about-details-text'>
-                                I enjoy learning new technologies and applying them to my work while keeping my code clean,
-                                scalable, and modular. I also enjoy coming up with new functionality and quality-of-life improvements
-                                that enhance the overall user experience.
-                            </p>
+                        <div className="about-content">
+                            <img src={backdrop} alt="" className="about-image" />
 
-                            <h3 className='about-details-subtitle'>My Approach:</h3>
-                            <p className='about-details-text'>
-                                I enjoy hands-on work and getting to understand a system as I make changes to it.
-                                I like brainstorming ideas for improvements and finding ways to make processes simpler
-                                and more efficient. I also value my teammates' perspectives and enjoy hearing their
-                                ideas and feedback, especially when it can lead to a better solution.
-                            </p>
+                            <div className="about-details">
+                                <h3 className="about-details-subtitle">Work interests:</h3>
+                                <p className="about-details-text">
+                                    I enjoy learning new technologies and applying them to my work while keeping my code clean,
+                                    scalable, and modular. I also enjoy coming up with new functionality and quality-of-life improvements
+                                    that enhance the overall user experience.
+                                </p>
 
-                            <h3 className='about-details-subtitle'>What I'm currently doing:</h3>
-                            <p className='about-details-text'>
-                                I'm currently working on expanding my knowledge of backend technologies and
-                                improving my understanding of design. I'm also exploring how AI can be used to
-                                streamline my workflow, make development more efficient, and help me iterate on ideas more quickly.
-                            </p>
+                                <h3 className="about-details-subtitle">My Approach:</h3>
+                                <p className="about-details-text">
+                                    I enjoy hands-on work and getting to understand a system as I make changes to it.
+                                    I like brainstorming ideas for improvements and finding ways to make processes simpler
+                                    and more efficient. I also value my teammates' perspectives and enjoy hearing their
+                                    ideas and feedback, especially when it can lead to a better solution.
+                                </p>
+
+                                <h3 className="about-details-subtitle">What I'm currently doing:</h3>
+                                <p className="about-details-text">
+                                    I'm currently working on expanding my knowledge of backend technologies and
+                                    improving my understanding of design. I'm also exploring how AI can be used to
+                                    streamline my workflow, make development more efficient, and help me iterate on ideas more quickly.
+                                </p>
+                            </div>
                         </div>
-
 
                     </section>
 
@@ -166,6 +207,9 @@ const HomePage = () => {
                                 >
                                     <i className="bi bi-discord"></i>
                                 </a>
+                                <button type="button" onClick={copyEmail}>
+                                    <i className={`bi ${copied ? "bi-check-lg text-green-400" : "bi-envelope-at-fill"}`}></i>
+                                </button>
                             </div>
                         </div>
                     </section>
