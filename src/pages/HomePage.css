@@ -10,11 +10,11 @@ section {
 
 /*HERO SECTION*/
 .hero-section {
-    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start relative overflow-hidden;
+    @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start relative overflow-hidden flex flex-col lg:flex-row flex-1;
 }
 
 .hero-content {
-    @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px]  h-auto min-h-[400px] sm:min-h-[450px] border border-white box-border;
+    @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px] min-h-[400px] h-full sm:min-h-[450px] border border-white box-border;
 }
 
 .hero-job-title {

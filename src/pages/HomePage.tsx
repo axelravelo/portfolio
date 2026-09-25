@@ -12,13 +12,12 @@ import { ContactUs } from '../components/Contact/ContactUs';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
-
-import { MathUtils } from "three";
+import StarField from '../components/Render/StarField'
 
 import backdrop from '../assets/webpage-backdrop.png'
 
 const HomePage = () => {
-    const [targetRotation, setTargetRotation] = useState({x:0, y:0});
+    const [targetRotation, setTargetRotation] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (event: React.MouseEvent) => {
         const normalizedX = (event.clientX / window.innerWidth) * 2 - 1;
@@ -27,7 +26,7 @@ const HomePage = () => {
         const targetRotationX = normalizedY * (Math.PI / 6);
         const targetRotationY = normalizedX * (Math.PI / 6);
 
-        setTargetRotation({x:targetRotationX, y:targetRotationY});
+        setTargetRotation({ x: targetRotationX, y: targetRotationY });
 
         console.log(normalizedY);
         // console.log(event.clientY);
@@ -59,7 +58,6 @@ const HomePage = () => {
                         className="hero-section"
                         onMouseMove={handleMouseMove}
                     >
-                        <HeroBackground targetRotation={targetRotation} />
                         <div className="hero-content">
                             <p className="text-[#94A3B8] text-[25px]">Hey!</p>
 
@@ -105,6 +103,9 @@ const HomePage = () => {
                                     Contact Me
                                 </button>
                             </div>
+                        </div>
+                        <div className="flex-1 min-w-0">
+                            <HeroBackground targetRotation={targetRotation} />
                         </div>
                     </section>
 

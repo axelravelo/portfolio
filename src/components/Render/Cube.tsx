@@ -1,5 +1,5 @@
 import { useFrame } from "@react-three/fiber";
-import { Mesh, MathUtils } from "three";
+import { Mesh, MathUtils, BoxGeometry } from "three";
 import { useRef } from "react";
 
 interface CubeProps {
@@ -21,16 +21,31 @@ const Cube = ({ targetRotation }: CubeProps) => {
     });
 
     return (
-        <mesh
+        <group
             ref={cubeRef}
-            position={[0, 0, -4]}
-            rotation={[0, 0, 0]}
-            scale={[1, 1, 1]}
+            position={[0, 0, -2]}
         >
+            {/* Cube */}
+            <mesh>
+                <boxGeometry args={[3, 3, 3]} />
 
-            <boxGeometry args={[3, 3, 3]} />
-            <meshStandardMaterial color="#3B82F6" />
-        </mesh>
+                <meshStandardMaterial
+                    color="#020617"
+                    metalness={0.85}
+                    roughness={0.2}
+                />
+            </mesh>
+
+            {/* Neon edges */}
+            <lineSegments>
+                <edgesGeometry args={[new BoxGeometry(3, 3, 3)]} />
+
+                <lineBasicMaterial
+                    color="#00FFFF"
+                    toneMapped={false}
+                />
+            </lineSegments>
+        </group>
     );
 };
 

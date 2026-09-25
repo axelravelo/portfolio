@@ -1,5 +1,6 @@
 import { Canvas } from "@react-three/fiber";
-
+import { EffectComposer, Bloom } from "@react-three/postprocessing";
+import StarField from './StarField'
 import Cube from './Cube'
 
 interface HeroBackgroundProps {
@@ -11,19 +12,52 @@ interface HeroBackgroundProps {
 
 const HeroBackground = ({ targetRotation }: HeroBackgroundProps) => {
     return (
-        <div className="absolute inset-0 z-0">
-            <Canvas>
+        <>
+            <Canvas >
+                <ambientLight intensity={0.03} />
 
-                <ambientLight intensity={0.5} />
+                <StarField />
 
-                <directionalLight
-                    color="#60A5FA"
-                    intensity={3}
-                    position={[3, 3, 5]}
+                <pointLight
+                    color="#00FFFF"
+                    intensity={12}
+                    distance={6}
+                    position={[4, 3, 2]}
                 />
+
+                <pointLight
+                    color="#A855F7"
+                    intensity={12}
+                    distance={6}
+                    position={[-2, 2, 1]}
+                />
+
+                <pointLight
+                    color="#39FF14"
+                    intensity={10}
+                    distance={6}
+                    position={[3, -3, 1]}
+                />
+
+                <pointLight
+                    color="#FF1493"
+                    intensity={10}
+                    distance={6}
+                    position={[-2, -2, -1]}
+                />
+
                 <Cube targetRotation={targetRotation} />
+
+                <EffectComposer>
+                    <Bloom
+                        intensity={2}
+                        luminanceThreshold={0.2}
+                        luminanceSmoothing={0.9}
+                        mipmapBlur
+                    />
+                </EffectComposer>
             </Canvas>
-        </div>
+        </>
     );
 };
 
