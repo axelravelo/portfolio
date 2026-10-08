@@ -12,7 +12,7 @@ interface CubeProps {
 const Cube = ({ targetRotation }: CubeProps) => {
     const cubeRef = useRef<Mesh>(null);
 
-    useFrame((state, delta) => {
+    useFrame((_state, delta) => {
         // console.log('this is running every frame')
         if (cubeRef.current) {
             cubeRef.current.rotation.y = MathUtils.lerp(cubeRef.current.rotation.y, targetRotation.y, 5 * delta)

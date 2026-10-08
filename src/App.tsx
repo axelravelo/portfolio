@@ -3,6 +3,7 @@ import './App.css'
 import { Routes, Route } from 'react-router-dom';
 
 import HomePage from './pages/HomePage';
+import ProjectPage from './pages/ProjectPage'
 import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
@@ -11,7 +12,7 @@ function App() {
     <>
       <Routes>
         <Route path="/" element={<HomePage />} />
-        {/* <Route path="checkout" element={<CheckoutPage cartItems={cartItems} fetchCartItems={fetchCartItems}/>} /> */}
+        <Route path="/project/:slug" element={<ProjectPage />} />
         <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>

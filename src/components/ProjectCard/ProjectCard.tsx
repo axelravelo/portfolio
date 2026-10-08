@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { NavLink } from "react-router-dom";
+// import { NavLink } from "react-router-dom";
 
 import type { Project } from "../../types/Project";
 import './ProjectCard.css'
@@ -67,7 +67,7 @@ const ProjectCard = ({ project }: ProjectCardProps) => {
                         {project.challenges}
                     </p>
 
-                    <NavLink to='/' className='learn-more-link'>Learn more</NavLink>
+                    {/* <NavLink to='/' className='learn-more-link'>Learn more</NavLink> */}
                 </div>
             </div>
         </>

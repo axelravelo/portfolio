@@ -12,7 +12,6 @@ import { ContactUs } from '../components/Contact/ContactUs';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
 import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
-import StarField from '../components/Render/StarField'
 
 import backdrop from '../assets/webpage-backdrop.png'
 
