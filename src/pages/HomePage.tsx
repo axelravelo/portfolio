@@ -3,9 +3,8 @@ import "bootstrap-icons/font/bootstrap-icons.css";
 
 import Header from "../components/Header/Header";
 import Footer from "../components/Footer/Footer";
-import HeroBackground from '../components/Render/HeroBackground';
 
-import { useEffect, useState } from 'react';
+import { lazy, Suspense, useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
 import { navigateToSection, scrollToSection } from "../utils/sectionNavigation";
 
@@ -15,6 +14,8 @@ import { webProjects } from "../data/webProjects";
 import { gameProjects } from "../data/gameProjects";
 
 import backdrop from '../assets/webpage-backdrop.png'
+
+const HeroBackground = lazy(() => import('../components/Render/HeroBackground'));
 
 const HomePage = () => {
     const [targetRotation, setTargetRotation] = useState({ x: 0, y: 0 });
@@ -118,7 +119,9 @@ const HomePage = () => {
                             </div>
                         </div>
                         <div className="hero-visual">
-                            <HeroBackground targetRotation={targetRotation} />
+                            <Suspense fallback={<div className="hero-canvas-loading" aria-hidden="true" />}>
+                                <HeroBackground targetRotation={targetRotation} />
+                            </Suspense>
                         </div>
                     </section>
 

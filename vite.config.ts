@@ -9,5 +9,21 @@ export default defineConfig({
     tailwindcss(),
   ],
   base: "/portfolio/",
-  
+  build: {
+    rolldownOptions: {
+      output: {
+        codeSplitting: {
+          groups: [
+            {
+              name: "vendor",
+              test: /node_modules/,
+              minSize: 20_000,
+              maxSize: 400_000,
+              entriesAware: true,
+            },
+          ],
+        },
+      },
+    },
+  },
 })
