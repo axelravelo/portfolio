@@ -217,10 +217,16 @@ const HomePage = () => {
                                 <article className="about-accomplishment">
                                     <h4>Game replication documentation</h4>
                                     <p>
-                                        Contributed documentation about replicated timers to a game development blog.
+                                        Contributed articles to a game development blog covering replicated timers, variables, and replication frequency.
                                     </p>
                                     <a href="https://manuelotheo.com/posts/replicated_timer/" target="_blank" rel="noopener noreferrer">
                                         Read the replicated timer article <span aria-hidden="true">↗</span>
+                                    </a>
+                                    <a href="https://manuelotheo.com/posts/replicated-variables/" target="_blank" rel="noopener noreferrer">
+                                        Read the replicated variables article <span aria-hidden="true">↗</span>
+                                    </a>
+                                    <a href="https://manuelotheo.com/posts/replication-frequency/" target="_blank" rel="noopener noreferrer">
+                                        Read the replication frequency article <span aria-hidden="true">↗</span>
                                     </a>
                                 </article>
                                 <article className="about-accomplishment">

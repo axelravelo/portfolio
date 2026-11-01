@@ -167,7 +167,7 @@ section {
 }
 
 .about-accomplishment a {
-    @apply inline-block text-[#60A5FA] underline underline-offset-4 mt-3 hover:text-[#BFDBFE] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
+    @apply block w-fit text-[#60A5FA] underline underline-offset-4 mt-3 hover:text-[#BFDBFE] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
 }
 
 /*CONTACT SECTION*/
