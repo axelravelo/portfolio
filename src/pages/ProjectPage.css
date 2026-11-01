@@ -1,0 +1,280 @@
+@import "tailwindcss";
+
+.project-page {
+    @apply min-h-screen bg-[#020617] pt-[60px] text-[#F8FAFC];
+}
+
+.project-detail {
+    @apply mx-auto max-w-[1440px] px-5 sm:px-10 lg:px-14 pt-8 pb-20;
+}
+
+.project-missing h1 {
+    @apply my-5 text-3xl sm:text-5xl font-bold;
+}
+
+.project-back-link {
+    @apply inline-flex items-center text-sm font-medium text-[#94A3B8] hover:text-white focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
+}
+
+.project-detail-hero {
+    @apply grid grid-cols-1 lg:grid-cols-[1.05fr_0.95fr] items-center gap-10 lg:gap-16 py-12 sm:py-16;
+}
+
+.project-detail-copy h1 {
+    @apply mt-3 text-4xl sm:text-5xl lg:text-6xl font-bold tracking-tight text-white;
+}
+
+.project-eyebrow,
+.project-section-index {
+    @apply text-xs sm:text-sm font-semibold uppercase tracking-[0.18em] text-[#60A5FA];
+}
+
+.project-detail-intro {
+    @apply mt-6 max-w-3xl text-lg sm:text-xl leading-relaxed text-[#CBD5E1];
+}
+
+.project-meta-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-6 mt-9 border-t border-[#334155] pt-6;
+}
+
+.project-meta-label {
+    @apply text-xs font-semibold uppercase tracking-[0.14em] text-[#64748B];
+}
+
+.project-meta-grid p {
+    @apply mt-2 text-sm sm:text-base leading-relaxed text-[#E2E8F0];
+}
+
+.project-tool-list {
+    @apply flex flex-wrap gap-2 mt-3;
+}
+
+.project-tool-list li {
+    @apply rounded-full border border-[#334155] bg-[#0F172A] px-3 py-1 text-xs sm:text-sm text-[#CBD5E1];
+}
+
+.project-repository-link {
+    @apply mt-7 inline-flex items-center gap-2 rounded-lg border border-[#3B82F6]/50 bg-[#0F172A] px-5 py-3 text-sm font-semibold text-[#BFDBFE] transition-colors hover:border-[#60A5FA] hover:bg-[#172554] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
+}
+
+.project-hero-image {
+    @apply w-full aspect-[4/3] rounded-2xl border border-[#334155] object-cover shadow-2xl shadow-black/30;
+}
+
+.project-story-grid {
+    @apply grid grid-cols-1 md:grid-cols-2 gap-4 sm:gap-6;
+}
+
+.project-story-card {
+    @apply rounded-2xl border border-[#1E293B] bg-[#080F21] p-6 sm:p-8;
+}
+
+.project-story-wide {
+    @apply md:col-span-2;
+}
+
+.project-story-card h2,
+.project-section-heading h2 {
+    @apply mt-3 text-2xl sm:text-3xl font-semibold text-white;
+}
+
+.project-story-card p {
+    @apply mt-4 text-base sm:text-lg leading-relaxed text-[#94A3B8];
+}
+
+.project-highlights,
+.project-gallery {
+    @apply mt-16 sm:mt-20;
+}
+
+.project-section-heading {
+    @apply mb-7;
+}
+
+.project-highlight-grid {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-6;
+}
+
+.project-highlight {
+    @apply rounded-2xl border border-[#1E293B] bg-[#080F21] p-6 sm:p-8;
+}
+
+.project-highlight-number {
+    @apply text-sm font-bold tracking-widest text-[#60A5FA];
+}
+
+.project-highlight h3 {
+    @apply mt-5 text-xl font-semibold text-white;
+}
+
+.project-highlight p {
+    @apply mt-3 leading-relaxed text-[#94A3B8];
+}
+
+.project-gallery-grid {
+    @apply grid grid-cols-1 lg:grid-cols-2 gap-5;
+}
+
+.project-gallery figure {
+    @apply overflow-hidden rounded-2xl border border-[#334155] bg-[#080F21];
+}
+
+.project-gallery img {
+    @apply mx-auto mt-6 block h-auto max-h-[65vh] w-[calc(100%-3rem)] max-w-full object-contain;
+}
+
+.project-gallery figcaption {
+    @apply px-5 py-4 text-sm text-[#94A3B8];
+}
+
+.project-pagination {
+    @apply grid grid-cols-1 sm:grid-cols-2 gap-4 mt-16 border-t border-[#1E293B] pt-6;
+}
+
+.project-pagination a {
+    @apply flex flex-col gap-2 rounded-xl p-4 hover:bg-[#080F21] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#60A5FA];
+}
+
+.project-pagination span {
+    @apply text-xs uppercase tracking-widest text-[#64748B];
+}
+
+.project-pagination strong {
+    @apply text-base sm:text-lg text-[#CBD5E1];
+}
+
+.project-next-link {
+    @apply sm:text-right sm:items-end;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .project-detail *,
+    .project-detail *::before,
+    .project-detail *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+:root[data-theme="light"] .project-page {
+    background: var(--palette-page);
+    color: var(--palette-text);
+}
+
+:root[data-theme="light"] .project-detail-copy h1,
+:root[data-theme="light"] .project-story-card h2,
+:root[data-theme="light"] .project-section-heading h2,
+:root[data-theme="light"] .project-highlight h3 {
+    color: var(--palette-text-strong);
+}
+
+:root[data-theme="light"] .project-back-link,
+:root[data-theme="light"] .project-story-card p,
+:root[data-theme="light"] .project-highlight p,
+:root[data-theme="light"] .project-gallery figcaption,
+:root[data-theme="light"] .project-pagination strong {
+    color: var(--palette-text-subtle);
+}
+
+:root[data-theme="light"] .project-eyebrow,
+:root[data-theme="light"] .project-section-index,
+:root[data-theme="light"] .project-highlight-number {
+    color: var(--palette-accent);
+}
+
+:root[data-theme="light"] .project-detail-intro,
+:root[data-theme="light"] .project-meta-grid p {
+    color: var(--palette-text-muted);
+}
+
+:root[data-theme="light"] .project-meta-grid,
+:root[data-theme="light"] .project-story-card,
+:root[data-theme="light"] .project-highlight,
+:root[data-theme="light"] .project-gallery figure,
+:root[data-theme="light"] .project-pagination {
+    border-color: var(--palette-border-soft);
+}
+
+:root[data-theme="light"] .project-story-card,
+:root[data-theme="light"] .project-highlight,
+:root[data-theme="light"] .project-gallery figure {
+    background: var(--palette-surface);
+}
+
+:root[data-theme="light"] .project-tool-list li {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
+}
+
+:root[data-theme="light"] .project-repository-link {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-accent-soft);
+}
+
+:root[data-theme="light"] .project-pagination a:hover {
+    background: var(--palette-section);
+}
+
+.project-page {
+    background: var(--palette-page);
+    color: var(--palette-text);
+}
+
+.project-back-link,
+.project-story-card p,
+.project-highlight p,
+.project-gallery figcaption,
+.project-pagination strong {
+    color: var(--palette-text-subtle);
+}
+
+.project-detail-copy h1,
+.project-story-card h2,
+.project-section-heading h2,
+.project-highlight h3 {
+    color: var(--palette-text-strong);
+}
+
+.project-eyebrow,
+.project-section-index,
+.project-highlight-number {
+    color: var(--palette-accent-bright);
+}
+
+.project-detail-intro,
+.project-meta-grid p {
+    color: var(--palette-text-muted);
+}
+
+.project-meta-grid,
+.project-story-card,
+.project-highlight,
+.project-gallery figure,
+.project-pagination {
+    border-color: var(--palette-border-soft);
+}
+
+.project-story-card,
+.project-highlight,
+.project-gallery figure {
+    background: var(--palette-surface);
+}
+
+.project-tool-list li {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
+}
+
+.project-repository-link {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-accent-soft);
+}
+
+.project-pagination a:hover {
+    background: var(--palette-surface);
+}

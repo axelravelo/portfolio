@@ -1,25 +1,86 @@
 @import "tailwindcss";
 
 :root {
+  color-scheme: dark;
+  --palette-page: #020617;
+  --palette-surface: #080f21;
+  --palette-section: #0f172a;
+  --palette-contact: #050f2b;
+  --palette-text: #f8fafc;
+  --palette-text-strong: #ffffff;
+  --palette-text-muted: #cbd5e1;
+  --palette-text-subtle: #94a3b8;
+  --palette-text-faint: #64748b;
+  --palette-border: #334155;
+  --palette-border-soft: #1e293b;
+  --palette-accent: #3b82f6;
+  --palette-accent-bright: #60a5fa;
+  --palette-accent-soft: #bfdbfe;
+  --palette-control: #0f172a;
+  --palette-control-hover: #1e293b;
+  --palette-hero-card: rgb(0 0 0 / 60%);
+  --palette-detail-card: rgb(0 0 0 / 40%);
+  --palette-highlight-card: rgb(0 0 0 / 35%);
+  --palette-success: #4ade80;
+  --palette-error: #fda4af;
   font-family: system-ui, "Segoe UI", Roboto, sans-serif;
-  color: #f8fafc;
-  background: #020617;
+  color: var(--palette-text);
+  background: var(--palette-page);
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
+:root[data-theme="light"] {
+  color-scheme: light;
+  --palette-page: #f8fafc;
+  --palette-surface: #ffffff;
+  --palette-section: #eaf0f7;
+  --palette-contact: #e2eaf5;
+  --palette-text: #172033;
+  --palette-text-strong: #0b1220;
+  --palette-text-muted: #334155;
+  --palette-text-subtle: #475569;
+  --palette-text-faint: #64748b;
+  --palette-border: #cbd5e1;
+  --palette-border-soft: #dbe3ed;
+  --palette-accent: #1d4ed8;
+  --palette-accent-bright: #1e40af;
+  --palette-accent-soft: #1e3a8a;
+  --palette-control: #f1f5f9;
+  --palette-control-hover: #e2e8f0;
+  --palette-hero-card: rgb(255 255 255 / 88%);
+  --palette-detail-card: #ffffff;
+  --palette-highlight-card: #ffffff;
+  --palette-success: #15803d;
+  --palette-error: #be123c;
+}
+
 body {
   margin: 0;
   min-width: 320px;
+  background: var(--palette-page);
+  color: var(--palette-text);
 }
 
 * {
   box-sizing: border-box;
 }
 
+:focus-visible {
+  outline: 3px solid var(--palette-accent-bright);
+  outline-offset: 3px;
+}
+
 html {
     scroll-behavior: smooth;
     scroll-snap-type: y proximity;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+    scroll-snap-type: none;
+  }
 }

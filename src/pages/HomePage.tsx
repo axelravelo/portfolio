@@ -2,11 +2,12 @@ import './HomePage.css'
 import "bootstrap-icons/font/bootstrap-icons.css";
 
 import Header from "../components/Header/Header";
+import Footer from "../components/Footer/Footer";
 import HeroBackground from '../components/Render/HeroBackground';
 
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLocation, useNavigate } from "react-router-dom";
-import { navigateToSection } from "../utils/sectionNavigation";
+import { navigateToSection, scrollToSection } from "../utils/sectionNavigation";
 
 import { ContactUs } from '../components/Contact/ContactUs';
 import ProjectCard from '../components/ProjectCard/ProjectCard';
@@ -19,6 +20,8 @@ const HomePage = () => {
     const [targetRotation, setTargetRotation] = useState({ x: 0, y: 0 });
 
     const handleMouseMove = (event: React.MouseEvent) => {
+        if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+
         const normalizedX = (event.clientX / window.innerWidth) * 2 - 1;
         const normalizedY = (event.clientY / window.innerHeight) * 2 - 1;
 
@@ -33,6 +36,17 @@ const HomePage = () => {
 
     const location = useLocation();
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const sectionId = location.hash.slice(1);
+        if (!sectionId) return;
+
+        const frame = window.requestAnimationFrame(() => {
+            scrollToSection(sectionId);
+        });
+
+        return () => window.cancelAnimationFrame(frame);
+    }, [location.hash]);
 
     const [copied, setCopied] = useState(false);
 
@@ -49,7 +63,7 @@ const HomePage = () => {
 
     return (
         <>
-            <div className="home-page">
+            <div className="home-page" id="top">
                 <Header />
                 <main>
                     <section
@@ -60,13 +74,13 @@ const HomePage = () => {
                         <div className="hero-content">
                             <p className="text-[#94A3B8] text-[25px]">Hey!</p>
 
-                            <p className="hero-name">I'm Axel.</p>
+                            <h1 className="hero-name">I'm Axel.</h1>
 
-                            <h1 className="hero-job-title">
+                            <h2 className="hero-job-title">
                                 Game Developer
                                 <span> → </span>
                                 Web Developer
-                            </h1>
+                            </h2>
 
                             <p className="hero-description">
                                 I’m a{" "}
@@ -103,17 +117,17 @@ const HomePage = () => {
                                 </button>
                             </div>
                         </div>
-                        <div className="flex-1 min-w-0">
+                        <div className="hero-visual">
                             <HeroBackground targetRotation={targetRotation} />
                         </div>
                     </section>
 
                     <section id="work" className='work-section'>
-                        <h1 className='work-section-title'>My Work</h1>
-                        <h2 className="work-section-subtitle">
+                        <h2 className='work-section-title'>My Work</h2>
+                        <h3 className="work-section-subtitle">
                             <span className="w-12 h-[2px] bg-[#3B82F6]"></span>
                             Web Development
-                        </h2>
+                        </h3>
 
                         <div className="project-cards-container">
                             <div className="project-cards-track">
@@ -125,10 +139,10 @@ const HomePage = () => {
                                 ))}
                             </div>
                         </div>
-                        <h2 className="work-section-subtitle">
+                        <h3 className="work-section-subtitle">
                             <span className="w-12 h-[2px] bg-[#3B82F6]"></span>
                             Game Development
-                        </h2>
+                        </h3>
                         <div className="project-cards-container">
                             <div className="project-cards-track">
                                 {gameProjects.map((project) => (
@@ -176,6 +190,49 @@ const HomePage = () => {
                             </div>
                         </div>
 
+                        <div className="about-highlights">
+                            <div className="about-skills">
+                                <h3 className="about-details-subtitle">Tools &amp; technologies</h3>
+                                <ul className="about-skills-list" aria-label="Tools and technologies">
+                                    <li>React</li>
+                                    <li>TypeScript</li>
+                                    <li>Tailwind CSS</li>
+                                    <li>Unreal Engine</li>
+                                    <li>Verse</li>
+                                    <li>Niagara</li>
+                                    <li>Codex</li>
+                                    <li>GitHub Copilot</li>
+                                </ul>
+                            </div>
+
+                            <div className="about-accomplishments">
+                                <h3 className="about-details-subtitle">Selected accomplishments</h3>
+                                <article className="about-accomplishment">
+                                    <h4>Large-number progression system</h4>
+                                    <p>
+                                        Designed a system for handling values beyond GAS's supported input range by
+                                        separating the displayed value from the value used by the gameplay system.
+                                    </p>
+                                </article>
+                                <article className="about-accomplishment">
+                                    <h4>Game replication documentation</h4>
+                                    <p>
+                                        Contributed documentation about replicated timers to a game development blog.
+                                    </p>
+                                    <a href="https://manuelotheo.com/posts/replicated_timer/" target="_blank" rel="noopener noreferrer">
+                                        Read the replicated timer article <span aria-hidden="true">↗</span>
+                                    </a>
+                                </article>
+                                <article className="about-accomplishment">
+                                    <h4>Concurrent effects in Mariachi Legends</h4>
+                                    <p>
+                                        Updated the sound and visual effects system so multiple effects can play together,
+                                        creating richer feedback when objects such as walls and boxes are destroyed.
+                                    </p>
+                                </article>
+                            </div>
+                        </div>
+
                     </section>
 
                     <section id="contact" className='contact-section'>
@@ -186,6 +243,7 @@ const HomePage = () => {
                             <div className="contact-links-container">
                                 <a
                                     href="https://github.com/axelravelo"
+                                    aria-label="GitHub profile"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -194,6 +252,7 @@ const HomePage = () => {
 
                                 <a
                                     href="https://www.linkedin.com/in/axel-ravelo-8889532a5/"
+                                    aria-label="LinkedIn profile"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
@@ -202,18 +261,33 @@ const HomePage = () => {
 
                                 <a
                                     href="https://discord.dog/1221224326003687534"
+                                    aria-label="Contact me on Discord"
                                     target="_blank"
                                     rel="noopener noreferrer"
                                 >
                                     <i className="bi bi-discord"></i>
                                 </a>
-                                <button type="button" onClick={copyEmail}>
-                                    <i className={`bi ${copied ? "bi-check-lg text-green-400" : "bi-envelope-at-fill"}`}></i>
-                                </button>
+                                <span className="contact-email-tooltip-wrap">
+                                    <a href={`mailto:${email}`} aria-label={`Email ${email}`} aria-describedby="contact-email-tooltip">
+                                        <i className="bi bi-envelope"></i>
+                                    </a>
+                                    <span className="contact-email-tooltip" id="contact-email-tooltip" role="tooltip">
+                                        Opens your default email app. If you don’t have one set up, use the contact form above.
+                                    </span>
+                                </span>
+                                <span className="contact-email-tooltip-wrap">
+                                    <button type="button" onClick={copyEmail} aria-label={copied ? "Email copied" : "Copy email address"} aria-describedby="copy-email-tooltip">
+                                        <i className={`bi ${copied ? "bi-check-lg text-green-400" : "bi-envelope-at-fill"}`}></i>
+                                    </button>
+                                    <span className="contact-email-tooltip" id="copy-email-tooltip" role="tooltip">
+                                        {copied ? "Email address copied to clipboard." : "Copy my email address to your clipboard."}
+                                    </span>
+                                </span>
                             </div>
                         </div>
                     </section>
                 </main>
+                <Footer />
             </div>
 
         </>

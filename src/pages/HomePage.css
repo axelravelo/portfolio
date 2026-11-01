@@ -13,8 +13,31 @@ section {
     @apply px-[20px] sm:px-[45px] pt-[35px] pb-[25px] min-h-screen snap-start relative overflow-hidden flex flex-col lg:flex-row flex-1;
 }
 
+.hero-visual {
+    @apply min-w-0 flex-1;
+}
+
+.hero-visual canvas {
+    @apply block;
+}
+
 .hero-content {
     @apply bg-[rgba(0,0,0,0.6)] rounded-2xl px-3 pt-5 w-full max-w-[670px] min-h-[400px] h-full sm:min-h-[450px] border border-white box-border;
+}
+
+:root[data-theme="light"] .hero-visual {
+    @apply min-h-[360px] overflow-hidden rounded-3xl border border-[#334155];
+    background: radial-gradient(ellipse at 50% 42%, #172554 0%, #081328 48%, #020617 100%);
+    box-shadow: 0 18px 50px rgb(15 23 42 / 18%);
+}
+
+@media (max-width: 1023px) {
+    :root[data-theme="light"] .hero-visual {
+        flex: none;
+        width: 100%;
+        height: clamp(240px, 70vw, 360px);
+        min-height: 0;
+    }
 }
 
 .hero-job-title {
@@ -49,6 +72,16 @@ section {
     @apply max-w-full;
 }
 
+@media (max-width: 1023px) {
+    .hero-section {
+        gap: 2rem;
+    }
+
+    .hero-content {
+        padding-bottom: 2rem;
+    }
+}
+
 /*WORK SECTION*/
 
 .work-section{
@@ -63,11 +96,11 @@ section {
     @apply text-[#F8FAFC] text-left mb-8 text-[24px] sm:text-[28px] font-semibold flex items-center gap-4;
 }
 .project-cards-container {
-    @apply overflow-x-auto w-full mb-15 scrollbar-track-[rgba(0,0,0,0)] scrollbar-thumb-gray-50 snap-x snap-proximity;
+    @apply overflow-x-auto w-full mb-15 scrollbar-track-[rgba(0,0,0,0)] scrollbar-thumb-gray-50 snap-x snap-proximity pb-2;
 }
 
 .project-cards-track {
-    @apply flex w-max min-w-full gap-7 justify-center;
+    @apply flex w-max min-w-full gap-7 justify-start;
 }
 
 
@@ -104,6 +137,39 @@ section {
     @apply text-[#94A3B8] text-[20px] text-justify mt-[5px] mb-[15px];
 }
 
+.about-highlights {
+    @apply grid grid-cols-1 lg:grid-cols-[0.8fr_1.2fr] gap-8 max-w-[1400px] mx-auto mt-10;
+}
+
+.about-skills,
+.about-accomplishments {
+    @apply border border-[#334155] rounded-2xl px-5 py-6 sm:px-7 bg-[rgba(0,0,0,0.35)];
+}
+
+.about-skills-list {
+    @apply flex flex-wrap gap-3 mt-5;
+}
+
+.about-skills-list li {
+    @apply rounded-full border border-[#334155] bg-[#0F172A] px-4 py-2 text-[#CBD5E1] text-[15px] sm:text-[16px];
+}
+
+.about-accomplishment {
+    @apply border-t border-[#334155] pt-4 mt-5;
+}
+
+.about-accomplishment h4 {
+    @apply text-[#F8FAFC] text-[19px] sm:text-[21px] font-semibold;
+}
+
+.about-accomplishment p {
+    @apply text-[#94A3B8] text-[16px] sm:text-[18px] leading-relaxed mt-2;
+}
+
+.about-accomplishment a {
+    @apply inline-block text-[#60A5FA] underline underline-offset-4 mt-3 hover:text-[#BFDBFE] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
+}
+
 /*CONTACT SECTION*/
 
 .contact-section{
@@ -127,6 +193,188 @@ section {
     @apply text-[#F8FAFC] text-[30px] transition-colors duration-200;
 }
 
-.contact-links-container a:hover, button:hover {
+.contact-links-container a:hover,
+.contact-links-container button:hover {
     @apply text-[#60A5FA] cursor-pointer;
+}
+
+.contact-email-tooltip-wrap {
+    @apply relative inline-flex;
+}
+
+.contact-email-tooltip {
+    @apply pointer-events-none absolute bottom-full left-1/2 z-10 mb-3 w-64 -translate-x-1/2 rounded-lg border border-[#334155] bg-[#0F172A] px-3 py-2 text-left text-xs leading-relaxed text-[#E2E8F0] opacity-0 shadow-xl transition-opacity duration-150;
+}
+
+.contact-email-tooltip-wrap:hover .contact-email-tooltip,
+.contact-email-tooltip-wrap:focus-within .contact-email-tooltip {
+    @apply opacity-100;
+}
+
+:root[data-theme="light"] .hero-content {
+    background: rgb(255 255 255 / 88%);
+    border-color: var(--palette-border);
+}
+
+:root[data-theme="light"] .hero-content > p:first-child {
+    color: var(--palette-text-subtle);
+}
+
+:root[data-theme="light"] .hero-name,
+:root[data-theme="light"] .work-section-title,
+:root[data-theme="light"] .work-section-subtitle,
+:root[data-theme="light"] .about-section-title,
+:root[data-theme="light"] .about-accomplishment h4,
+:root[data-theme="light"] .contact-section-title {
+    color: var(--palette-text-strong);
+}
+
+:root[data-theme="light"] .hero-job-title,
+:root[data-theme="light"] .hero-description,
+:root[data-theme="light"] .about-introduction,
+:root[data-theme="light"] .about-details-text,
+:root[data-theme="light"] .about-accomplishment p {
+    color: var(--palette-text-subtle);
+}
+
+:root[data-theme="light"] .hero-highlight,
+:root[data-theme="light"] .about-details-subtitle {
+    color: var(--palette-accent);
+}
+
+:root[data-theme="light"] .hero-links button,
+:root[data-theme="light"] .about-accomplishment a {
+    color: var(--palette-accent-bright);
+}
+
+:root[data-theme="light"] .work-section {
+    background: var(--palette-section);
+}
+
+:root[data-theme="light"] .about-section {
+    border-color: var(--palette-border);
+}
+
+:root[data-theme="light"] .about-image,
+:root[data-theme="light"] .about-details,
+:root[data-theme="light"] .about-skills,
+:root[data-theme="light"] .about-accomplishments {
+    border-color: var(--palette-border);
+}
+
+:root[data-theme="light"] .about-details,
+:root[data-theme="light"] .about-skills,
+:root[data-theme="light"] .about-accomplishments {
+    background: var(--palette-surface);
+}
+
+:root[data-theme="light"] .about-skills-list li {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
+}
+
+:root[data-theme="light"] .about-accomplishment {
+    border-color: var(--palette-border-soft);
+}
+
+:root[data-theme="light"] .contact-section {
+    background: var(--palette-contact);
+}
+
+:root[data-theme="light"] .contact-links-container a,
+:root[data-theme="light"] .contact-links-container button {
+    color: var(--palette-text-muted);
+}
+
+:root[data-theme="light"] .contact-links-container a:hover,
+:root[data-theme="light"] .contact-links-container button:hover {
+    color: var(--palette-accent);
+}
+
+:root[data-theme="light"] .contact-email-tooltip {
+    background: var(--palette-surface);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
+}
+
+.hero-content {
+    background: var(--palette-hero-card);
+    border-color: var(--palette-border);
+}
+
+.hero-job-title,
+.hero-description,
+.about-introduction,
+.about-details-text,
+.about-accomplishment p {
+    color: var(--palette-text-subtle);
+}
+
+.hero-name,
+.work-section-title,
+.work-section-subtitle,
+.about-section-title,
+.about-accomplishment h4,
+.contact-section-title {
+    color: var(--palette-text-strong);
+}
+
+.hero-highlight,
+.about-details-subtitle {
+    color: var(--palette-accent);
+}
+
+.hero-links button,
+.about-accomplishment a {
+    color: var(--palette-accent-bright);
+}
+
+.work-section {
+    background: var(--palette-section);
+}
+
+.about-section,
+.about-details,
+.about-image,
+.about-skills,
+.about-accomplishments,
+.about-accomplishment {
+    border-color: var(--palette-border);
+}
+
+.about-details {
+    background: var(--palette-detail-card);
+}
+
+.about-skills,
+.about-accomplishments {
+    background: var(--palette-highlight-card);
+}
+
+.about-skills-list li {
+    background: var(--palette-control);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
+}
+
+.contact-section {
+    background: var(--palette-contact);
+}
+
+.contact-section-title,
+.contact-links-container a,
+.contact-links-container button {
+    color: var(--palette-text);
+}
+
+.contact-links-container a:hover,
+.contact-links-container button:hover {
+    color: var(--palette-accent-bright);
+}
+
+.contact-email-tooltip {
+    background: var(--palette-surface);
+    border-color: var(--palette-border);
+    color: var(--palette-text-muted);
 }

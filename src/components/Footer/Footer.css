@@ -1,0 +1,17 @@
+@import "tailwindcss";
+
+.site-footer {
+    @apply flex flex-col sm:flex-row items-center justify-between gap-3 border-t px-5 sm:px-10 lg:px-14 py-6 text-sm;
+    border-color: var(--palette-border-soft);
+    background: var(--palette-surface);
+    color: var(--palette-text-subtle);
+}
+
+.site-footer a {
+    @apply rounded-sm font-medium focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#60A5FA];
+    color: var(--palette-accent-bright);
+}
+
+.site-footer a:hover {
+    color: var(--palette-accent-soft);
+}

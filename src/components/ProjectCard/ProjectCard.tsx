@@ -1,5 +1,4 @@
-import { useState } from "react";
-// import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import type { Project } from "../../types/Project";
 import './ProjectCard.css'
@@ -9,68 +8,22 @@ interface ProjectCardProps {
 }
 
 const ProjectCard = ({ project }: ProjectCardProps) => {
-
-    const [isSelected, setIsSelected] = useState(false);
-
-    const handleClick = () => {
-        setIsSelected((isSelected) => !isSelected);
-    };
-
     return (
-        <>
-            <div
-                className="group relative shrink-0 w-[85vw] lg:w-[720px] rounded-2xl aspect-[16/10] mb-3 snap-center"
-                onClick={handleClick}
+        <article className="project-card group">
+            <Link
+                to={`/project/${project.slug}`}
+                className="project-card-link"
+                aria-label={`View ${project.title} case study`}
             >
-                <img
-                    src={project.image}
-                    alt={project.title}
-                    className="w-full h-full object-cover"
-                />
-
-                {/* Normal state */}
-                <div
-                    className={`unselected-project-title ${isSelected ? "mobile-hidden" : ""
-                        }`}
-                >
-                    <h3 className="text-2xl font-bold text-white">
-                        {project.title}
-                    </h3>
+                <img src={project.image} alt="" className="project-card-image" loading="lazy" />
+                <div className="project-card-overlay">
+                    <span className="project-card-category">{project.category}</span>
+                    <h4>{project.title}</h4>
+                    <p>{project.description}</p>
+                    <span className="project-card-cta">View case study <span aria-hidden="true">↗</span></span>
                 </div>
-
-                {/* Selected state */}
-                <div
-                    className={`selected-project-title ${isSelected ? "mobile-visible" : ""
-                        }`}
-                >
-                    <h3 className="text-2xl font-bold text-white">
-                        {project.title}
-                    </h3>
-
-                    <p className="card-description">
-                        {project.description}
-                    </p>
-
-                    <h4 className="mt-5 font-semibold text-white">
-                        My Responsibilities:
-                    </h4>
-
-                    <p className="card-responsibilities">
-                        {project.responsibilities}
-                    </p>
-
-                    <h4 className="mt-5 font-semibold text-white">
-                        Challenges:
-                    </h4>
-
-                    <p className="card-challenges">
-                        {project.challenges}
-                    </p>
-
-                    {/* <NavLink to='/' className='learn-more-link'>Learn more</NavLink> */}
-                </div>
-            </div>
-        </>
+            </Link>
+        </article>
     );
 }
 

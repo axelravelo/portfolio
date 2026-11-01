@@ -37,3 +37,76 @@
 .contact-submit:hover {
     @apply bg-[#60A5FA];
 }
+
+.contact-submit:disabled {
+    @apply cursor-wait opacity-70;
+}
+
+.contact-form-status {
+    @apply min-h-5 text-sm;
+}
+
+.contact-form-status-success {
+    @apply text-emerald-400;
+}
+
+.contact-form-status-error {
+    @apply text-rose-300;
+}
+
+:root[data-theme="light"] .contact-form {
+    background: var(--palette-surface);
+    border-color: var(--palette-border);
+}
+
+:root[data-theme="light"] .contact-form-field label {
+    color: var(--palette-accent-soft);
+}
+
+:root[data-theme="light"] .contact-form-field input,
+:root[data-theme="light"] .contact-form-field textarea {
+    background: var(--palette-page);
+    border-color: var(--palette-border);
+    color: var(--palette-text);
+}
+
+:root[data-theme="light"] .contact-submit {
+    background: var(--palette-accent);
+}
+
+:root[data-theme="light"] .contact-submit:hover {
+    background: var(--palette-accent-bright);
+}
+
+.contact-form {
+    background: var(--palette-surface);
+    border-color: var(--palette-border);
+}
+
+.contact-form-field label {
+    color: var(--palette-accent-soft);
+}
+
+.contact-form-field input,
+.contact-form-field textarea {
+    background: var(--palette-page);
+    border-color: var(--palette-border);
+    color: var(--palette-text);
+}
+
+.contact-submit {
+    background: var(--palette-accent);
+    color: var(--palette-text-strong);
+}
+
+.contact-submit:hover {
+    background: var(--palette-accent-bright);
+}
+
+.contact-form-status-success {
+    color: var(--palette-success);
+}
+
+.contact-form-status-error {
+    color: var(--palette-error);
+}

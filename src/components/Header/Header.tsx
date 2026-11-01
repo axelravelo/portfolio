@@ -1,57 +1,111 @@
 import './Header.css'
-import { useLocation, useNavigate } from "react-router-dom";
-import { navigateToSection } from "../../utils/sectionNavigation";
+import { useEffect, useRef, useState } from "react";
+import { Link, useLocation } from "react-router-dom";
+import { scrollToSection } from "../../utils/sectionNavigation";
 
 const Header = () => {
 
     const location = useLocation();
-    const navigate = useNavigate();
+    const [menuOpen, setMenuOpen] = useState(false);
+    const [theme, setTheme] = useState<"dark" | "light">(() =>
+        localStorage.getItem("portfolio-theme") === "light" ? "light" : "dark"
+    );
+    const menuToggleRef = useRef<HTMLButtonElement>(null);
+
+    useEffect(() => {
+        document.documentElement.dataset.theme = theme;
+        localStorage.setItem("portfolio-theme", theme);
+    }, [theme]);
+
+    const handleSectionClick = (event: React.MouseEvent<HTMLAnchorElement>, sectionId: string) => {
+        setMenuOpen(false);
+        if (location.pathname === "/") {
+            event.preventDefault();
+            scrollToSection(sectionId);
+        }
+    };
+
+    const closeMenu = () => {
+        setMenuOpen(false);
+        menuToggleRef.current?.focus();
+    };
 
     return (
         <>
-            <div className="header">
+            <header className="header">
                 <div className="left-section">
-                    <button
+                    <Link
+                        to="/#hero"
                         className="header-link"
-                        onClick={() =>
-                            navigateToSection("hero", location.pathname, navigate)
-                        }
+                        onClick={(event) => handleSectionClick(event, "hero")}
                     >
                         Axel Ravelo
-                    </button>
+                    </Link>
                 </div>
 
                 <div className="middle-section"></div>
 
-                <div className="right-section">
-                    <button
+                <button
+                    ref={menuToggleRef}
+                    type="button"
+                    className="header-menu-toggle"
+                    aria-label={menuOpen ? "Close navigation menu" : "Open navigation menu"}
+                    aria-expanded={menuOpen}
+                    aria-controls="main-navigation"
+                    onClick={() => setMenuOpen((open) => !open)}
+                    onKeyDown={(event) => {
+                        if (event.key === "Escape" && menuOpen) closeMenu();
+                    }}
+                >
+                    <span className={`header-menu-icon ${menuOpen ? "is-open" : ""}`} aria-hidden="true">
+                        <span />
+                        <span />
+                        <span />
+                    </span>
+                </button>
+
+                <nav
+                    id="main-navigation"
+                    className={`right-section ${menuOpen ? "is-open" : ""}`}
+                    aria-label="Main navigation"
+                    onKeyDown={(event) => {
+                        if (event.key === "Escape" && menuOpen) closeMenu();
+                    }}
+                >
+                    <Link
+                        to="/#work"
                         className="header-link"
-                        onClick={() =>
-                            navigateToSection("work", location.pathname, navigate)
-                        }
+                        onClick={(event) => { handleSectionClick(event, "work"); if (window.innerWidth <= 640) menuToggleRef.current?.focus(); }}
                     >
                         Work
-                    </button>
+                    </Link>
 
-                    <button
-                        className="header-link ml-3"
-                        onClick={() =>
-                            navigateToSection("about", location.pathname, navigate)
-                        }
+                    <Link
+                        to="/#about"
+                        className="header-link"
+                        onClick={(event) => { handleSectionClick(event, "about"); if (window.innerWidth <= 640) menuToggleRef.current?.focus(); }}
                     >
                         About
-                    </button>
+                    </Link>
 
-                    <button
-                        className="header-link ml-3"
-                        onClick={() =>
-                            navigateToSection("contact", location.pathname, navigate)
-                        }
+                    <Link
+                        to="/#contact"
+                        className="header-link"
+                        onClick={(event) => { handleSectionClick(event, "contact"); if (window.innerWidth <= 640) menuToggleRef.current?.focus(); }}
                     >
                         Contact
+                    </Link>
+                    <button
+                        type="button"
+                        className="theme-toggle"
+                        aria-label={`Switch to ${theme === "dark" ? "light" : "dark"} theme`}
+                        aria-pressed={theme === "light"}
+                        onClick={() => setTheme((current) => current === "dark" ? "light" : "dark")}
+                    >
+                        <span aria-hidden="true">{theme === "dark" ? "☼" : "☾"}</span>
                     </button>
-                </div>
-            </div>
+                </nav>
+            </header>
         </>
     );
 }

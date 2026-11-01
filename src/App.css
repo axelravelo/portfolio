@@ -1,0 +1,13 @@
+.not-found-page {
+  min-height: 100vh;
+  background: var(--palette-page);
+  color: var(--palette-text);
+}
+
+:root[data-theme="light"] .not-found-page .text-blue-400 {
+  color: var(--palette-accent);
+}
+
+:root[data-theme="light"] .not-found-page .text-slate-400 {
+  color: var(--palette-text-subtle);
+}
